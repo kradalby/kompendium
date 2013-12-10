@@ -154,27 +154,24 @@ Forgreningspredikering
 	\item Dynamisk - Forutsier hopp ut i fra hvor det har skjedd hopp før.
 \end{itemize}
 
+\section{Prosessor}
+
+\begin{itemize}
+\item RISC = Reduced instruction set computer 
+\item CISC = Complex instruction set computer
+\item CISC = Hver instruksjon kan utføre flere lavnivåoperasjoner, som for eksempel lese fra minnet, en aritmetisk operasjon og skriving til minnet, alt i én instruksjon.
+\item RISC = I motsetning til CISC-prosessorer kan utføre relativt få instruksjoner. Til gjengjeld tar hver instruksjon kort tid å utføre.
+\end{itemize}
+
+Heterogenekjerner vil si at kjernene er ulike, dvs de har forskjellig instruksjonssett og/eller ytelse
 
 
+Hvilke typer avhengigheter har man mellom instruksjoner?
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{enumerate}
+\item Sanne datavhengigheter (RAW). En foregående instruksjon skriver til et register som en senere instruksjon leser.
+\item Utavhengigheter (WAW). En foregående instruksjon skriver til samme register som en senere instruksjon også skriver til.
+\item Antiavhengigheter (WAR). En foregående instruksjon leser fra et register som en senere instruksjon skriver til.
+\end{enumerate}
 
 \end{document}
-
-
