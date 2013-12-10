@@ -7,7 +7,7 @@
 \usepackage{amsmath}
 \usepackage{mathtools}
 
-\title{Brukerkurs MA0003 Huskeregler}
+\title{MA0003 Cheatsheet}
 \author{Kristoffer Dalby}
 \date{}
 
@@ -21,7 +21,42 @@
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
-\section{Derivasjon}
+\section{Domain and Range}
+Domain is the acceptable x-values and Range is the acceptable y-values.
+
+\subsection{Domain}
+$f(x) = \frac{6}{2-x}$\\
+$2-x \neq 0 \quad \rightarrow \quad x \neq 2$\\
+$D = (-\infty, 2) \cup (2, \infty)$ 
+\quad or\\
+$D = \{x | x \neq 2 \}$
+
+\section{Slope and y-intercept}
+Problem: $y-3x = 6$\\ 
+Solve for y: $y=3x+6$\\
+slope $\rightarrow 3x$ \quad y-int $\rightarrow 6$\\
+$\text{slope} = m = 3$
+
+
+
+\section{Derivative}
+
+\subsection{Critical points}
+The function:\\
+$f(x) = y=x^2-6x+5$\\
+The derivative:\\
+$f'(x) = y'= 2x-6$\\
+Set $y'$ to zero to find $x$\\
+$y' = 0 \Rightarrow 0 = 2x-6 \Rightarrow x=3$\\
+Solve for $x$\\
+$y = (3^2) - (6 \cdot 3) + 5 \Rightarrow 9 - 18 + 5 = -4$\\
+The critical point is $-4$
+
+\subsection{Inflection points}
+Find the second derivative of the function\\
+$y'' = 2$\\
+Set $y''$ to zero\\
+$y'' = 0 \neq 2 \rightarrow \text{No inflection points}$
 
 \subsection{Practical rules}
 $\frac{d}{dx} (x^n)= nx^{n-1}$\\\\
@@ -38,6 +73,6 @@ $\frac{d}{dx} (\log_ax) = \frac{1}{\ln a \cdot x} $\\\\
 $\frac{d}{dx} (\log_af(x)) = \frac{1}{\ln a \cdot x} \cdot f'(x) $\\\\
 
 
-\section{Integrasjon}
+\section{Integration}
 
 \end{document}
