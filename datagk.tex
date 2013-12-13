@@ -21,6 +21,42 @@
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
+\section{Forkortelser}
+ \begin{tabular}{|l|l|}
+    \hline
+    Forkortelse & Betydning                        \\ \hline
+    PC          & Program Counter                  \\ \hline
+    MPC         & Micro Program Counter            \\ \hline
+    MBR         & Memory Buffer Register           \\ \hline
+    IR          & Instruction Register             \\ \hline
+    MAR         & Memory Address Register          \\ \hline
+    MDR         & Memory Data Register             \\ \hline
+    LV          & Local Variable                   \\ \hline
+    SP          & Stack Pointer                    \\ \hline
+    CPP         & Constant Pool Pointer            \\ \hline
+    TOS         & Top Of Stack                     \\ \hline
+    OPC         & OpCode                           \\ \hline
+    H           & Holding Register                 \\ \hline
+    ALU         & Arithmetic Logic Unit            \\ \hline
+    RAW         & Read-After-Write                 \\ \hline
+    WAW         & Write-After-Write                \\ \hline
+    WAR         & Write-After-Read                 \\ \hline
+    SRAM        & Static RAM                       \\ \hline
+    SDRAM       & Synchronous Dynamic RAM          \\ \hline
+    DRAM        & Dynamic RAM                      \\ \hline
+    CMP         & Chip-level MultiProsessor        \\ \hline
+    ILP         & Instruction-Level Parallelism    \\ \hline
+    RISC        & Reduced Instruction Set Computer \\ \hline
+    CISC        & Complex Instruction Set Computer \\ \hline
+    ~           & ~                                \\ \hline
+    ~           & ~                                \\ \hline
+    ~           & ~                                \\ \hline
+    ~           & ~                                \\ \hline
+    ~           & ~                                \\ \hline
+    ~           & ~                                \\ \hline
+    \end{tabular}
+\newpage    
+   
 \section{Registre}
 \subsection{PC}
 Program counter peker på den instruksjonen i programmet som blir jobbet med.
@@ -133,6 +169,11 @@ Chip-level Multiprosessor er flere prosessorer på samme brukke. Bruker samme hu
 
 Fordeler med CMP er lavere effekt/varmeutvikling, bedre utnyttelse av prosessorkraft, mulighet for "ut av rekkefølge" og lettere å utnytte instruksjonsnivåparallellitet.
 
+\subsection{ILP}
+Instruction-level parallelism er en måling av hvor mange av et dataprogram sine operasjoner kan bli utført samtidig.
+
+
+
 \section{Adressering}
 Måten instruksjonen angir hvor data skal hentes fra kalles en adresseringsmodus.
 
@@ -165,13 +206,5 @@ Forgreningspredikering
 
 Heterogenekjerner vil si at kjernene er ulike, dvs de har forskjellig instruksjonssett og/eller ytelse
 
-
-Hvilke typer avhengigheter har man mellom instruksjoner?
-
-\begin{enumerate}
-\item Sanne datavhengigheter (RAW). En foregående instruksjon skriver til et register som en senere instruksjon leser.
-\item Utavhengigheter (WAW). En foregående instruksjon skriver til samme register som en senere instruksjon også skriver til.
-\item Antiavhengigheter (WAR). En foregående instruksjon leser fra et register som en senere instruksjon skriver til.
-\end{enumerate}
 
 \end{document}
