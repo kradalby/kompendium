@@ -48,7 +48,7 @@
     ILP         & Instruction-Level Parallelism    \\ \hline
     RISC        & Reduced Instruction Set Computer \\ \hline
     CISC        & Complex Instruction Set Computer \\ \hline
-    ~           & ~                                \\ \hline
+    MIR         & MicroInstruction Register        \\ \hline
     ~           & ~                                \\ \hline
     ~           & ~                                \\ \hline
     ~           & ~                                \\ \hline
@@ -77,13 +77,13 @@ Memory Address Register inneholder adresse til neste minnelokasjon der vi finner
 Memory Data Register inneholder data som skal bli lagret i hovedminne/RAM, eller data som har blitt hentet fra minne. Det fungerer som en buffer så data er klar for prosessoren.
 
 \subsection{LV}
-Local Variable inneholder pekerverdi.
+Local Variable inneholder pekerverdi, den peker til det nederste elementet i stakken.
 
 \subsection{SP}
-Stack Pointer inneholder pekerverdi mot element i stacken.
+Stack Pointer inneholder pekerverdi mot det øverste elementet i stakken.
 
 \subsection{CPP}
-Constant Pool Pointer inneholder pekerverdi.
+Constant Pool Pointer inneholder pekerverdi. Kontanter fra Java-program, leses inn ved oppstart, endres ikke.
 
 \subsection{TOS}
 Top Of Stack skal alltid inneholde elementet på toppen av stakken
@@ -121,6 +121,7 @@ Moderne datamaskiner har ALU og kontrollenhet på prosessor (CPU), benytter seg 
 \begin{itemize}
 	\item Addr - Peker på neste mikroinstruksjon i instruksjonen.
 	\item J - Jam sier ifra om ALU har flagget neste mikroinstruksjon eller om det kommer hopp (betinget hopp).
+	\item Jam + Addr - Bestemmer neste mikroinstruksjon
 	\item ALU - bestemmer hvilken funksjon ALU skal gjennomføre.
 	\item C - Inneholder adressen til C-bussen, som blir det samme som adressen til registeret det skal skrives til. 
 	\item Mem - Sier ifra om det skal gjøres noe med minne.
@@ -128,7 +129,10 @@ Moderne datamaskiner har ALU og kontrollenhet på prosessor (CPU), benytter seg 
 \end{itemize}
 
 \section{Superskalar CPU}
-En superskalar prosessor implementerer en form for parallellitet som kalles instruksjonsnivåparallellitet. Dette betyr at den kan utføre flere instruksjoner pr. klokkesyklus (dupliserer CPU-enheter).
+En superskalar prosessor implementerer en form for parallellitet som kalles instruksjonsnivåparallellitet. Dette betyr at den kan utføre flere instruksjoner pr. klokkesyklus (dupliserer CPU-enheter). Duplisering av CPU komponenter. Billigere om man bare dupliserer noen.
+
+\subsection{Klokkesyklus}
+For å regne ut klokkesyklus med gitt forsinkelse tar man å deler 1 på 
 
 \section{Lokalitet}
 \subsection{Tid}
@@ -151,13 +155,22 @@ Write-After-Read (antiavhengigheter er når for eksempel instruksjon 3 skriver t
 
 \section{RAM}
 \subsection{SRAM}
-Statisk RAM er raskt og trenger ikke opdateres. Brukes ofte i hurtigbuffere.
+Statisk RAM er raskt og trenger ikke oppdateres. Brukes ofte i hurtigbuffere.
 
 \subsection{DRAM}
 Dynamisk RAM må friskes opp jevnlig. Det tar mindre plass en SRAM (2 vs. 6 transistorer).
 
 \subsection{SDRAM} 
 Synkront Dynamisk RAM betyr at data blir overført til/fra RAM synkront med klokka (og systembussen).
+
+\section{ROM}
+Non-volatile betyr at rammen holder på data uten strøm.
+\subsection{PROM}
+Programmable read-only memory er et type minne som kun kan programmeres en gang. Rammen er non-volatile.
+\subsection{EPROM}
+Erasable programmable read only memory er et type minne som kan endres, det kan slettes ved bruk av UV lys. Rammen er non-volatile.
+\subsection{EEPROM}
+Electrically Erasable Programmable read-only memory is a non-volatile read only memory that can be deleted.
 
 \section{CMP}
 Chip-level Multiprosessor er flere prosessorer på samme brukke. Bruker samme hurtigbuffer.
@@ -171,7 +184,10 @@ Fordeler med CMP er lavere effekt/varmeutvikling, bedre utnyttelse av prosessork
 
 \subsection{ILP}
 Instruction-level parallelism er en måling av hvor mange av et dataprogram sine operasjoner kan bli utført samtidig.
+En prosessor utfører flere instruksjoner samtidig. 
 
+\subsection{PNP}
+Prosessornivåparalelitet betyr at flere prosessorer utfører instruksjoner samtidig.
 
 
 \section{Adressering}
@@ -205,6 +221,7 @@ Forgreningspredikering
 \end{itemize}
 
 Heterogenekjerner vil si at kjernene er ulike, dvs de har forskjellig instruksjonssett og/eller ytelse
+
 
 
 \end{document}
