@@ -107,6 +107,13 @@ Holding Register inneholder verdien som skal inn i A-inngangen til ALU.
 \section{Von Neumann}
 Data og instruksjoner er lagret i samme minne og beregninger skjer sekvensielt. Von Neumann-arkitektur gjør det mulig å skrive program som kan endre sin egen programkode.
 
+\begin{figure}[hbt]
+    \begin{center}
+        \includegraphics[width=6cm] {img/vonneumann.png}
+        \caption{Et eksempel på Von Neumann}
+    \end{center}
+\end{figure}
+
 \begin{itemize}
 	\item ALU - Aritmetisk og logisk enhet som utfører beregningene.
 	\item Control Unit - Kontrollenhet som dekoder instruksjoner og gjennomfører dem. \\ Kontrollenheten kan enten være hard-wired eller inneholde kode styrt av en mikrokontroller.
@@ -116,6 +123,8 @@ Data og instruksjoner er lagret i samme minne og beregninger skjer sekvensielt. 
 \end{itemize}
 
 Moderne datamaskiner har ALU og kontrollenhet på prosessor (CPU), benytter seg av registre, hurtigbuffere, busser og millioner av transistorer, men konseptet er veldig likt. Overføring av data mellom minne og CPU blir i dag sett på som et av de største problemene med Von Neumann-arkitektur.
+
+
 
 \section{MicroInstruction Register}
 \begin{itemize}
@@ -194,10 +203,10 @@ Prosessornivåparalelitet betyr at flere prosessorer utfører instruksjoner samt
 Måten instruksjonen angir hvor data skal hentes fra kalles en adresseringsmodus.
 
 \begin{itemize}
-	\item Immidiate - Operanden er innbakt i instruksjonen. Må være kjent når programmet lages.
+	\item Immidiate - Operanden er innbakt i instruksjonen. Må være kjent når programmet lages. For konstanter
 	\item Direkte - Instruksjonen angir adressen til operand i RAM.
 	\item Indirekte - Instruksjonen angir adresse til RAM-celle som igjen inneholder adressen til operand.
-	\item Register - Instruksjonen har nummer på register som inneholder operand.
+	\item Register - Instruksjonen har nummer på register som inneholder operand. (RISC)
 	\item Indirekte register - Instruksjon har nummer på register som inneholder adressen til operand i RAM.
 	\item Stakk - Adressen er implisitt gitt av stakkpeker.
 \end{itemize}
@@ -211,6 +220,8 @@ Forgreningspredikering
 	\item Dynamisk - Forutsier hopp ut i fra hvor det har skjedd hopp før.
 \end{itemize}
 
+En generell prosessor må ha branching og flowcontroll.
+
 \section{Prosessor}
 
 \begin{itemize}
@@ -222,6 +233,64 @@ Forgreningspredikering
 
 Heterogenekjerner vil si at kjernene er ulike, dvs de har forskjellig instruksjonssett og/eller ytelse
 
+\section{Logic gates}
+\subsection{XOR}
+\begin{tabular}{|l|l|l|}
+    \hline
+    Input & ~ & Output \\ \hline
+    0     & 0 & 1      \\ \hline
+    0     & 1 & 0      \\ \hline
+    1     & 0 & 0      \\ \hline
+    1     & 1 & 1      \\ \hline
+\end{tabular}
+
+\subsection{NOR}
+\begin{tabular}{|l|l|l|}
+    \hline
+    Input & ~ & Output \\ \hline
+    0     & 0 & 1      \\ \hline
+    0     & 1 & 0      \\ \hline
+    1     & 0 & 0      \\ \hline
+    1     & 1 & 0      \\ \hline
+\end{tabular}
+
+\subsection{OR}
+\begin{tabular}{|l|l|l|}
+    \hline
+    Input & ~ & Output \\ \hline
+    0     & 0 & 0      \\ \hline
+    0     & 1 & 1      \\ \hline
+    1     & 0 & 1      \\ \hline
+    1     & 1 & 1      \\ \hline
+\end{tabular}
+
+\subsection{AND}
+\begin{tabular}{|l|l|l|}
+    \hline
+    Input & ~ & Output \\ \hline
+    0     & 0 & 0      \\ \hline
+    0     & 1 & 0      \\ \hline
+    1     & 0 & 0      \\ \hline
+    1     & 1 & 1      \\ \hline
+\end{tabular}
+    
+\subsection{NAND}
+\begin{tabular}{|l|l|l|}
+    \hline
+    Input & ~ & Output \\ \hline
+    0     & 0 & 1      \\ \hline
+    0     & 1 & 1      \\ \hline
+    1     & 0 & 1      \\ \hline
+    1     & 1 & 0      \\ \hline
+\end{tabular}
+
+
+\section{Adder}
+\subsection{Half adder}
+Kan summere en og en bit, og gi ut et resultat bit og et carry bit om nødvendig.
+
+\subsection{Full adder}
+Kan ta inn og summere en og en bit og en carry bit og gi ut et resultat bit og carry bit.
 
 
 \end{document}
