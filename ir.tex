@@ -1,0 +1,86 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[norsk]{babel}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\title{TDT4117 Cheatsheet}
+\author{Kristoffer Dalby}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Informasjonsgjenfinning}
+Informasjonsgjenfinning handler om å søke etter relevant informasjon i ikke strukturerte dataset. Et eksempel på dette er et vanlig tekst dokument. IR har ikke et strikt språk og fokuserer på å finne relevans over eksakt match. IR bruker naturlig språk, delvis matching, og ukomplette spesifikasjoner.
+
+\section{Datagjenfinning}
+Handler om å finne eksakt informasjon i strukturerte dataset. Det brukes et strikt query language som SQL og det returnerer kun informasjon som matcher spørringen din.
+
+\section{TF/IDF}
+Term frequency - Inverse Document Frequency er produktet av TF og IDF.\\
+TF er hvor mange ganger en term forekommer i et dokument.\\
+IDF er et mål på hvor vanlig en term er i en gitt samling av dokumenter.\\
+IDF er antall dokumenter i samlingen delt på antall dokumenter termen forekommer i.
+
+\section{Okapi BM25}
+BM25 er en ranking funksjon brukt i søkemotorer. Den baserer seg på bag-of-words prinsippet og rangerer dokumentene basert på queryterms som forekommer i hvert dokument. Den tar ikke hensyn til forhold mellom termer i et dokument.
+
+\section{Vector space Model}
+Vectorspace modellen ser på spørringer og dokumenter som vektorer, hvor verdien av vektoren representerer forekomster av ordet i samlingen.
+
+\section{Boolean model}
+Veldig simpel modell som bygger på boolsk sett-teori. En term er enten i dokumentet (1), eller så er den ikke det (0). Har ingen delvis matching eller ranking.
+
+\section{Edit distance}
+Edit distance handler om å finne det minimale antallet operasjoner som kreves for å omgjøre en streng til en annen. Det vil aldri trengs flere operasjoner en den lengste strengen. 
+
+\section{Language Model}
+Språkmodellen er bygget på at det genereres dokumentmodeller basert på statestikk fra dokumenter. Deretter beregner den hvor stor sannsynlighet det er for at hver dokument modell skal generere spørringen.\\
+Problem:
+\begin{itemize}
+	\item LM antar at det er likhet mellom dokumento g informasjon
+	\item LM baserer seg på en veldig forenkling av språkmodellen
+	\item Vanskligere å bruke URF en i PM
+	\item Vanskligere å integrere frasesøk, spørsmål og boolsøk
+\end{itemize}
+
+\section{Probability model}
+Probability modellen baserer seg på at en gitt term befinner seg i et gitt dokument. Sorteres i synkende grad etter sannsynligheten for at et dokument er relevant. Tar ikke TF eller IDF i betraktning. Vektormodellen har i tester vist seg å være generelt bedre en Probability.
+
+\section{Document preprocessing}
+Steg for å forberede indeksering:\\
+Leksikal analyse -> Fjerne stoppord -> Stemming -> Valg av indextermer -> Thesaurus
+
+\subsection{Leksikal Analyse} 
+Behandle mellomrom, nummer, og tegn slik at ord blir korrekt indeksert.\\
+state-of-the-art ⇔ state of the art.
+
+\subsection{Fjerning av stoppord} - fjerne ord som er for generelle og urelevante til indeksering. \\
+er, en, i, å.
+
+\subsection{Stemming}
+Handler om å også benytte ulike variasjoner av samme grunn-ord:\\
+Bajs, bajsen, bajser, bajsene. Spy, spyr, spydde, spydd.
+
+\subsection{Valg av indekstermer}
+Velge hvilke ord som skal brukes til indeksering. Hvor mange ord eller hvor spesifikke ord man bruker gjenspeiler hvor dyp indekseringen skal være. Det er også vanlig å gruppere substantiv som forekommer sammen og ikke gir mening uten hverandre.
+Computer Science.
+
+\subsection{Thesaurus}
+Synonymordbok.\\
+Strukturere valgte indekstermer.
+
+
+
+\end{document}
